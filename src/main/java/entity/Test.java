@@ -38,7 +38,7 @@ public class Test implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, name, requirement);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class Test implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Test other = (Test) obj;
-		return Objects.equals(id, other.id) && Objects.equals(name, other.name)
-				&& Objects.equals(requirement, other.requirement);
+		return Objects.equals(id, other.id);
 	}
+
 }
