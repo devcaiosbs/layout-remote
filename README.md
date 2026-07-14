@@ -1,6 +1,6 @@
 # Inspection Layout Management – IATF 16949
 
-Sistema desenvolvido para gerenciar inspeções de layout de produtos, auxiliando no controle e rastreabilidade exigidos pela norma **IATF 16949**.
+Sistema em desenvolvimento para gerenciar inspeções de layout de produtos, auxiliando no controle e rastreabilidade exigidos pela norma **IATF 16949**.
 
 ## Tecnologias
 
