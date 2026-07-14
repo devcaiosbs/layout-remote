@@ -6,14 +6,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+@Entity
 public class Product implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private final Long id;
+	@NotBlank
 	private String name;
+	@NotBlank
 	private final String partNumber;
 	private boolean isActive;
-	private boolean isPA;
+	private boolean isPA; // 
 	private LocalDate lastInspection;
 	private String plant;
 
@@ -22,7 +32,7 @@ public class Product implements Serializable {
 	private final List<Standard> standards = new ArrayList<>();
 
 	public Product(Long id, String name, String partNumber, boolean isActive, boolean isPA, Customer customer,
-			LocalDate lastInspection, String plant, Material material, List<Standard> standards) {
+			LocalDate lastInspection, String plant, Material material) {
 		this.id = id;
 		this.name = name;
 		this.partNumber = partNumber;

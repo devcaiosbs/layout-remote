@@ -5,11 +5,19 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 import entity.enums.Operator;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+@Entity
 public class Requirement implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private final Long id;
+	@NotBlank
 	private String parameter;
 	private Operator operator;
 	private BigDecimal value;
@@ -43,9 +51,7 @@ public class Requirement implements Serializable {
 	public String getUnit() {
 		return unit;
 	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+
 	public void setParameter(String parameter) {
 		this.parameter = parameter;
 	}
