@@ -1,5 +1,62 @@
 package entity;
 
-public class LayoutReport {
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Objects;
 
+public class LayoutReport implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	private final Long id;
+	private final LocalDate inspectionDay;
+	private String notes;
+	private Product product;
+
+	public LayoutReport(Long id, LocalDate inspectionDay, String notes, Product product) {
+		this.id = id;
+		this.inspectionDay = inspectionDay;
+		this.notes = notes;
+		this.product = product;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public LocalDate getInspectionDay() {
+		return inspectionDay;
+	}
+
+	public String getNotes() {
+		return notes;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		LayoutReport other = (LayoutReport) obj;
+		return Objects.equals(id, other.id);
+	}
 }

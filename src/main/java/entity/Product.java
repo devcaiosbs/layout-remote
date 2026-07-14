@@ -1,6 +1,9 @@
 package entity;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Product implements Serializable {
@@ -9,20 +12,24 @@ public class Product implements Serializable {
 	private final Long id;
 	private String name;
 	private String partNumber;
-	private Customer customer;
-	private Material material;
 	private boolean isAtive;
 	private boolean isPA;
+	private LocalDate lastInspection;
 
-	public Product(Long id, String name, String partNumber, Customer customer, Material material, boolean isAtive,
-			boolean isPA) {
+	private Customer customer;
+	private Material material;
+	private List<Standard> standards = new ArrayList<>();
+
+	public Product(Long id, String name, String partNumber, boolean isAtive, boolean isPA, Customer customer,
+			LocalDate lastInspection, Material material, List<Standard> standards) {
 		this.id = id;
 		this.name = name;
 		this.partNumber = partNumber;
-		this.customer = customer;
-		this.material = material;
 		this.isAtive = isAtive;
 		this.isPA = isPA;
+		this.customer = customer;
+		this.material = material;
+		this.standards = standards;
 	}
 
 	public Long getId() {
@@ -33,20 +40,8 @@ public class Product implements Serializable {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getPartNumber() {
 		return partNumber;
-	}
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public Material getMaterial() {
-		return material;
 	}
 
 	public boolean isAtive() {
@@ -57,8 +52,40 @@ public class Product implements Serializable {
 		return isPA;
 	}
 
+	public LocalDate getLastInspection() {
+		return lastInspection;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public Material getMaterial() {
+		return material;
+	}
+
+	public List<Standard> getStandards() {
+		return standards;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public void setPartNumber(String partNumber) {
 		this.partNumber = partNumber;
+	}
+
+	public void setAtive(boolean isAtive) {
+		this.isAtive = isAtive;
+	}
+
+	public void setPA(boolean isPA) {
+		this.isPA = isPA;
+	}
+
+	public void setLastInspection(LocalDate lastInspection) {
+		this.lastInspection = lastInspection;
 	}
 
 	public void setCustomer(Customer customer) {
@@ -69,12 +96,8 @@ public class Product implements Serializable {
 		this.material = material;
 	}
 
-	public void setAtive(boolean isAtive) {
-		this.isAtive = isAtive;
-	}
-
-	public void setPA(boolean isPA) {
-		this.isPA = isPA;
+	public void setStandards(List<Standard> standards) {
+		this.standards = standards;
 	}
 
 	@Override
