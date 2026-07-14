@@ -54,6 +54,10 @@ public class Standard implements Serializable {
 		this.customer = customer;
 	}
 
+	public void addTest(Test test) {
+		this.tests.add(test);
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

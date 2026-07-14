@@ -11,25 +11,27 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private final Long id;
 	private String name;
-	private String partNumber;
-	private boolean isAtive;
+	private final String partNumber;
+	private boolean isActive;
 	private boolean isPA;
 	private LocalDate lastInspection;
+	private String plant;
 
 	private Customer customer;
 	private Material material;
-	private List<Standard> standards = new ArrayList<>();
+	private final List<Standard> standards = new ArrayList<>();
 
-	public Product(Long id, String name, String partNumber, boolean isAtive, boolean isPA, Customer customer,
-			LocalDate lastInspection, Material material, List<Standard> standards) {
+	public Product(Long id, String name, String partNumber, boolean isActive, boolean isPA, Customer customer,
+			LocalDate lastInspection, String plant, Material material, List<Standard> standards) {
 		this.id = id;
 		this.name = name;
 		this.partNumber = partNumber;
-		this.isAtive = isAtive;
+		this.isActive = isActive;
 		this.isPA = isPA;
+		this.lastInspection = lastInspection;
+		this.plant = plant;
 		this.customer = customer;
 		this.material = material;
-		this.standards = standards;
 	}
 
 	public Long getId() {
@@ -44,8 +46,8 @@ public class Product implements Serializable {
 		return partNumber;
 	}
 
-	public boolean isAtive() {
-		return isAtive;
+	public boolean isActive() {
+		return isActive;
 	}
 
 	public boolean isPA() {
@@ -54,6 +56,10 @@ public class Product implements Serializable {
 
 	public LocalDate getLastInspection() {
 		return lastInspection;
+	}
+
+	public String getPlant() {
+		return plant;
 	}
 
 	public Customer getCustomer() {
@@ -72,12 +78,8 @@ public class Product implements Serializable {
 		this.name = name;
 	}
 
-	public void setPartNumber(String partNumber) {
-		this.partNumber = partNumber;
-	}
-
-	public void setAtive(boolean isAtive) {
-		this.isAtive = isAtive;
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 
 	public void setPA(boolean isPA) {
@@ -88,6 +90,10 @@ public class Product implements Serializable {
 		this.lastInspection = lastInspection;
 	}
 
+	public void setPlant(String plant) {
+		this.plant = plant;
+	}
+
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
@@ -96,8 +102,12 @@ public class Product implements Serializable {
 		this.material = material;
 	}
 
-	public void setStandards(List<Standard> standards) {
-		this.standards = standards;
+	public void addStandard(Standard standard) {
+		this.standards.add(standard);
+	}
+
+	public void removeStandard(Standard standard) {
+		standards.remove(standard);
 	}
 
 	@Override
