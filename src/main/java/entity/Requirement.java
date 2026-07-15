@@ -10,6 +10,26 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+
+/**
+ * Represents an inspection requirement used to validate a product or
+ * process parameter.
+ *
+ * Each requirement defines:
+ * - the parameter to be evaluated;
+ * - the comparison operator (>, <, =, >=, <=);
+ * - the expected value;
+ * - the allowed tolerance;
+ * - the unit of measurement.
+ *
+ * Example:
+ * Parameter: Hardness
+ * Operator: >=
+ * Value: 55
+ * Tolerance: 2
+ * Unit: HRC
+ */
+
 @Entity
 public class Requirement implements Serializable {
 

@@ -11,6 +11,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
 
+/**
+ * Represents the measurement result of an inspection requirement.
+ *
+ * Each measured characteristic stores:
+ * - the measured value;
+ * - the evaluation result (OK or NOK);
+ * - the requirement used to validate the measurement.
+ *
+ * Example:
+ * Measured value: 20.32
+ * Requirement: Melt Flow Index, BETWEEN, nominal value = 30,
+ * tolerance = 10, unit = g/10 min
+ * Result: OK
+ */
+
 @Entity
 public class MeasuredCharacteristic implements Serializable {
 

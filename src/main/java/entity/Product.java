@@ -23,7 +23,7 @@ public class Product implements Serializable {
 	@NotBlank
 	private final String partNumber;
 	private boolean isActive;
-	private boolean isPA; // 
+	private boolean hasAnnualInspection; // 
 	private LocalDate lastInspection;
 	private String plant;
 
@@ -31,13 +31,13 @@ public class Product implements Serializable {
 	private Material material;
 	private final List<Standard> standards = new ArrayList<>();
 
-	public Product(Long id, String name, String partNumber, boolean isActive, boolean isPA, Customer customer,
+	public Product(Long id, String name, String partNumber, boolean isActive, boolean hasAnnualInspection, Customer customer,
 			LocalDate lastInspection, String plant, Material material) {
 		this.id = id;
 		this.name = name;
 		this.partNumber = partNumber;
 		this.isActive = isActive;
-		this.isPA = isPA;
+		this.hasAnnualInspection = hasAnnualInspection;
 		this.lastInspection = lastInspection;
 		this.plant = plant;
 		this.customer = customer;
@@ -60,8 +60,8 @@ public class Product implements Serializable {
 		return isActive;
 	}
 
-	public boolean isPA() {
-		return isPA;
+	public boolean hasAnnualInspection() {
+		return hasAnnualInspection;
 	}
 
 	public LocalDate getLastInspection() {
@@ -92,8 +92,8 @@ public class Product implements Serializable {
 		this.isActive = isActive;
 	}
 
-	public void setPA(boolean isPA) {
-		this.isPA = isPA;
+	public void hasAnnualInspection(boolean hasAnnualInspection) {
+		this.hasAnnualInspection = hasAnnualInspection;
 	}
 
 	public void setLastInspection(LocalDate lastInspection) {
