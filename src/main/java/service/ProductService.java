@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import org.springframework.stereotype.Service;
 
-import entity.ProductRepository;
+import repository.ProductRepository;
 
 @Service
 public class ProductService implements Serializable {

@@ -17,9 +17,9 @@ public class LayoutReport implements Serializable {
 	private final Long id;
 	private final LocalDate inspectionDay;
 	private String notes;
-	private ProductRepository product;
+	private Product product;
 
-	public LayoutReport(Long id, LocalDate inspectionDay, String notes, ProductRepository product) {
+	public LayoutReport(Long id, LocalDate inspectionDay, String notes, Product product) {
 		this.id = id;
 		this.inspectionDay = inspectionDay;
 		this.notes = notes;
@@ -38,7 +38,7 @@ public class LayoutReport implements Serializable {
 		return notes;
 	}
 
-	public ProductRepository getProduct() {
+	public Product getProduct() {
 		return product;
 	}
 
@@ -46,7 +46,7 @@ public class LayoutReport implements Serializable {
 		this.notes = notes;
 	}
 
-	public void setProduct(ProductRepository product) {
+	public void setProduct(Product product) {
 		this.product = product;
 	}
 

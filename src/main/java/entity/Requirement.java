@@ -40,16 +40,16 @@ public class Requirement implements Serializable {
 	@NotBlank
 	private String parameter;
 	private Operator operator;
-	private BigDecimal value;
+	private BigDecimal nominalValue;
 	private BigDecimal tolerance;
 	private String unit;
 	
-	public Requirement(Long id, String parameter, Operator operator, BigDecimal value, BigDecimal tolerance,
+	public Requirement(Long id, String parameter, Operator operator, BigDecimal nominalValue, BigDecimal tolerance,
 			String unit) {
 		this.id = id;
 		this.parameter = parameter;
 		this.operator = operator;
-		this.value = value;
+		this.nominalValue = nominalValue;
 		this.tolerance = tolerance;
 		this.unit = unit;
 	}
@@ -62,8 +62,8 @@ public class Requirement implements Serializable {
 	public Operator getOperator() {
 		return operator;
 	}
-	public BigDecimal getValue() {
-		return value;
+	public BigDecimal getNominalValue() {
+		return nominalValue;
 	}
 	public BigDecimal getTolerance() {
 		return tolerance;
@@ -78,8 +78,8 @@ public class Requirement implements Serializable {
 	public void setOperator(Operator operator) {
 		this.operator = operator;
 	}
-	public void setValue(BigDecimal value) {
-		this.value = value;
+	public void setNominalValue(BigDecimal nominalValue) {
+		this.nominalValue = nominalValue;
 	}
 	public void setTolerance(BigDecimal tolerance) {
 		this.tolerance = tolerance;
