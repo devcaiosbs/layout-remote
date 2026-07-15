@@ -12,7 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 @Entity
-public class Product implements Serializable {
+public class ProductRepository implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -31,7 +31,7 @@ public class Product implements Serializable {
 	private Material material;
 	private final List<Standard> standards = new ArrayList<>();
 
-	public Product(Long id, String name, String partNumber, boolean isActive, boolean hasAnnualInspection, Customer customer,
+	public ProductRepository(Long id, String name, String partNumber, boolean isActive, boolean hasAnnualInspection, Customer customer,
 			LocalDate lastInspection, String plant, Material material) {
 		this.id = id;
 		this.name = name;
@@ -133,7 +133,7 @@ public class Product implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Product other = (Product) obj;
+		ProductRepository other = (ProductRepository) obj;
 		return Objects.equals(id, other.id);
 	}
 }
